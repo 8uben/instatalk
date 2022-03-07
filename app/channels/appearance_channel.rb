@@ -4,12 +4,12 @@ class AppearanceChannel < ApplicationCable::Channel
 
     stream_from 'appearance'
 
-    $redis.rpush(@list_name, current_user.nickname)
+    $redis.rpush(@list_name, nickname)
     appear
   end
 
   def unsubscribed
-    $redis.lrem(@list_name, 1, current_user.nickname)
+    $redis.lrem(@list_name, 1, nickname)
     appear
   end
 
@@ -25,6 +25,10 @@ class AppearanceChannel < ApplicationCable::Channel
   end
 
   def broadcast
-    ActionCable.server.broadcast('appearance', {users: @users})
+    ActionCable.server.broadcast('appearance', {users: @users.uniq})
+  end
+
+  def nickname
+    current_user.nickname
   end
 end
