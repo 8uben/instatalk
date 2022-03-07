@@ -1,11 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Rooms</h1>
+<div class="d-flex justify-content-between">
+  <div class="col-md-4">
+    <h1>Rooms</h1>
+    <ul class="mt-4 list-unstyled">
+      <%= render @rooms %>
+    </ul>
 
-<ul class="mt-4 list-unstyled">
-  <%= render @rooms %>
-</ul>
-
-<div class="mt-2">
-  <%= render 'rooms/form', room: @room %>
+    <div class="mt-2">
+      <%= render 'rooms/form', room: @room %>
+    </div>
+  </div>
+  <div class="col-md-4" id="online-users">
+     <h2>Online now</h2>
+  </div>
 </div>
