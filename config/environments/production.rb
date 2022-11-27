@@ -42,10 +42,10 @@ Rails.application.configure do
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # TODO
-  config.action_cable.url = 'wss://instatalk-gp.herokuapp.com/cable'
+  config.action_cable.url = "wss://instatalk.#{Rails.application.credentials.dig(:cap, :domain)}/cable"
   config.action_cable.allowed_request_origins = [
-    'http://instatalk-gp.herokuapp.com/cable',
-    'https://instatalk-gp.herokuapp.com/cable'
+    "http://instatalk.#{Rails.application.credentials.dig(:cap, :domain)}/cable",
+    "https://instatalk.#{Rails.application.credentials.dig(:cap, :domain)}/cable"
   ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.

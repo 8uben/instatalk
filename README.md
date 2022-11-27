@@ -2,4 +2,4 @@
 
 Demo a little chat app with websocket technology.
 
-Deploy on [Heroku](https://instatalk-gp.herokuapp.com/)
+Deploy on [VPS](https://instatalk.vladfdv.ru)
